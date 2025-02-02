@@ -1,0 +1,97 @@
+/* General Styles */
+html, body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(45deg, #b5cfd9, #4a4af6);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: #f4f4f4;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Title */
+.title {
+    font-size: 18px;
+    color: #333;
+}
+
+/* Date Selector */
+.date-selector {
+    margin-top: 10px;
+}
+
+.dates {
+    display: flex;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.date {
+    background: #ddd;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.selected {
+    background: #4a5fe2;
+    color: white;
+}
+
+/* Report Section */
+.report-title {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #444;
+}
+
+.report {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Report Cards */
+.card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-size: 12px;
+    color: gray;
+}
+
+.value {
+    font-size: 18px;
+    font-weight: bold;
+}
