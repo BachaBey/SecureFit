@@ -7,9 +7,9 @@ html, body {
 }
 
 body {
-    background: linear-gradient(45deg, #b5cfd9, #4a4af6);
+    background: #f4f4f4;
     font-family: 'Montserrat', sans-serif;
-    display: flex;
+    padding: 20px;
     justify-content: center;
     align-items: center;
 }
