@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="activity.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>SecureFit</title>
+</head>
+<body>
+    <!-- Activity Header -->
+    <h2 class="title">Activity</h2>
+
+    <!-- Date Selector -->
+    <div class="date-selector">
+        <span id="monthDate"></span>
+        <div class="dates">
+            <button class="date"></button>
+            <button class="date"></button>
+            <button class="date"></button>
+            <button class="date"></button>
+            <button class="date"></button>
+            <button class="date"></button>
+            <button class="date"></button>
+            <button class="date selected"></button>
+        </div>
+    </div>
+
+    <!-- Report Section -->
+    <h3 class="report-title">Today Report</h3>
+    
+    <div class="report">
+        <div class="card">
+            <img src="../Images/duration-icon.png" class="icon" alt="Duration">
+            <div class="details">
+                <p class="label">Duration</p>
+                <p class="valueDuration">28 mins</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../Images/calories-icon.png" class="icon" alt="Calories">
+            <div class="details">
+                <p class="label">Calories</p>
+                <p class="valueCalories">34 cal</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../Images/distance-icon.png" class="icon" alt="Distance">
+            <div class="details">
+                <p class="label">Distance</p>
+                <p class="valueDistance">3752 m</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../Images/carbon-icon.png" class="icon" alt="Carbon">
+            <div class="details">
+                <p class="label">Carbon</p>
+                <p class="valueCarbon">6 oz</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="navBar">
+        <img src="../Images/home-icon.png" class="iconNavBar" alt="home" onclick="window.location.href='../HomePage/Home.html'">
+        <img src="../Images/analytics-selected-icon.png" class="iconNavBar selectedIconNavBar" alt="analytics">
+        <img src="../Images/profile-icon.png" class="iconNavBar" alt="profile" onclick="window.location.href='../ProfilePage/Profile.html'">
+    </div>
+    
+</body>
+</html>
+
+<script src="activity.js"></script>
+
+    
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+    import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAWtTTy56hwxe4dE4CJWEg1HwUI1KeQBjw",
+        authDomain: "fit-fe30b.firebaseapp.com",
+        databaseURL: "https://fit-fe30b-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "fit-fe30b",
+        storageBucket: "fit-fe30b.firebasestorage.app",
+        messagingSenderId: "563952602554",
+        appId: "1:563952602554:web:789936db6f8e4a63f06183",
+        measurementId: "G-RX2YG2457P"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    
+    dateButtons.forEach(button => {
+        button.addEventListener("click", function () {
+
+            daySelected=this.id;
+            
+        }); 
+    });
+</script>

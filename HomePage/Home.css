@@ -1,0 +1,115 @@
+html, body {
+    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f4f4f4;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0 16px ;
+    padding-bottom: 0;
+    justify-content: center;
+    align-items: center;
+}
+.topPageConatiner{
+    display: flex;
+    height: 10%;
+    margin-top: 10px;
+
+}
+.title {
+    font-size: 16px;
+    color: #333;
+}
+.titleName {
+    font-size: 18px;
+    color: #333;
+}
+.logoApp {
+    
+    float: right;
+    width: 100px;
+}
+
+.lockContainer{
+    height: 38%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.statusContainer{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 10%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.status{
+    font-size: 20px;
+}
+.lockedState{
+    color: green;
+}
+.unlockedState{
+    color: red;
+}
+.lockButton {
+    border: 0;
+    border-radius: 40px;
+    width: 40%;
+    height: 14%;
+    margin-top: 16px;
+    font-size: 20px;
+    color: black;
+}
+.lockButtonLock{
+    background-color: red;
+}
+.lockButtonUnlock{
+    background-color: rgb(18, 183, 18);
+}
+
+.mapContainer{
+    margin-top: 10px;
+    height: 35%;
+    display: flex;
+    background-color: #192126;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 10px;
+}
+#map {
+    height: 100%;
+    width: 100%;
+    border-radius: 18px;
+}
+
+
+
+
+
+
+.navBar{
+    margin-top: 12px;
+    align-items: center;
+    height: 8%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #192126;
+    border-radius: 50px;
+}
+.iconNavBar {
+    width: 26px;
+    height: 26px;
+}
+.selectedIconNavBar{
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #a5b2e2;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureFit</title>
+    <link rel="stylesheet" href="Home.css">
+</head>
+<body>
+    <div class="topPageConatiner">
+        <div style="width: 60%;">
+            <h2 class="title">Hello,</h2>
+            <h2 class="titleName">User Name</h2>
+        </div>
+        <div style="width: 40%;">
+            <img class="logoApp" src="../Images/LogoApp-PNG.png" alt="">
+        </div>
+    </div>
+
+    <div class="lockContainer">
+        <div class="statusContainer">
+            <p class="status">Status:</p>
+            <p id="state" style="font-size: 20px;">Locked</p>
+        </div>
+        <div>
+            <img src="../Images/lock-open.png" alt="lockState">
+        </div>
+        <button class="lockButton lockButtonUnlock">Lock</button>
+    </div>
+    <div class="mapContainer">
+        <div id="map"></div>
+    </div>
+
+    <div class="navBar">
+        <img src="../Images/home-selected-icon.png" class="iconNavBar  selectedIconNavBar" alt="home">
+        <img src="../Images/analytics-icon.png" class="iconNavBar" alt="analytics" onclick="window.location.href='../ActivityPage/activity.html'">
+        <img src="../Images/profile-icon.png" class="iconNavBar" alt="profile" onclick="window.location.href='../ProfilePage/Profile.html'">
+    </div>
+    
+    
+</body>
+</html>
+
+<script>
+    function initMap() {
+        // Coordinates to center the map initially (e.g., Eiffel Tower)
+        const initialLocation = { lat: 48.8584, lng: 2.2945 };  // You can set it to any initial coordinates
+
+        const map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 14,
+            center: initialLocation,
+        });
+
+        // Add a marker at the initial location
+        const marker = new google.maps.Marker({
+            position: initialLocation,
+            map: map,
+            title: "Click to open in Google Maps",
+        });
+
+        // Event listener for clicking on the map
+        map.addListener('click', function(event) {
+            const clickedLat = event.latLng.lat();  // Get the latitude of the clicked point
+            const clickedLng = event.latLng.lng();  // Get the longitude of the clicked point
+
+            // Open Google Maps in a new tab at the clicked location
+            const googleMapsUrl = `https://www.google.com/maps?q=${clickedLat},${clickedLng}`;
+            window.open(googleMapsUrl, '_blank');
+        });
+    }
+</script>
+
+<!-- Load Google Maps API with your API key -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&v=weekly" async></script>
