@@ -36,4 +36,5 @@ function loadMapScript() {
 function onGoogleMapsLoaded() {
     initMap(lat, lng); // Change this to any coordinates you want
 }
+
     
