@@ -54,12 +54,7 @@ body {
 .lockImage{
     height: 100%;
 }
-.lockedState{
-    color: green;
-}
-.unlockedState{
-    color: red;
-}
+
 .lockButton {
     border: 0;
     border-radius: 40px;
