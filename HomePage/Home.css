@@ -51,6 +51,9 @@ body {
 .status{
     font-size: 20px;
 }
+.lockImage{
+    height: 100%;
+}
 .lockedState{
     color: green;
 }
@@ -62,7 +65,7 @@ body {
     border-radius: 40px;
     width: 40%;
     height: 14%;
-    margin-top: 16px;
+    margin-top: 20px;
     font-size: 20px;
     color: black;
 }
@@ -74,7 +77,7 @@ body {
 }
 
 .mapContainer{
-    margin-top: 10px;
+    
     height: 35%;
     display: flex;
     background-color: #192126;

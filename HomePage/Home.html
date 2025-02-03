@@ -22,8 +22,8 @@
             <p class="status">Status:</p>
             <p id="state" style="font-size: 20px;">Locked</p>
         </div>
-        <div>
-            <img src="../Images/lock-open.png" alt="lockState">
+        <div style="height: 40%;">
+            <img class="lockImage" src="../Images/lock-open.png" alt="lockState">
         </div>
         <button class="lockButton lockButtonUnlock">Lock</button>
     </div>
@@ -38,13 +38,13 @@
     </div>
     
     
+    
 </body>
 </html>
 
 <script>
     function initMap() {
-        // Coordinates to center the map initially (e.g., Eiffel Tower)
-        const initialLocation = { lat: 48.8584, lng: 2.2945 };  // You can set it to any initial coordinates
+        const initialLocation = { lat: 36.84526, lng: 10.27001 };  // You can set it to any initial coordinates
 
         const map = new google.maps.Map(document.getElementById("map"), {
             zoom: 14,
@@ -71,4 +71,4 @@
 </script>
 
 <!-- Load Google Maps API with your API key -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&v=weekly" async></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&v=weekly" async></script>
