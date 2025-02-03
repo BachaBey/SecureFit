@@ -20,12 +20,12 @@
     <div class="lockContainer">
         <div class="statusContainer">
             <p class="status">Status:</p>
-            <p id="state" style="font-size: 20px;">Locked</p>
+            <p id="state" style="font-size: 20px;"></p>
         </div>
         <div style="height: 40%;">
-            <img class="lockImage" src="../Images/lock-open.png" alt="lockState">
+            <img id="lockImage" class="lockImage" src="" alt="lockState">
         </div>
-        <button class="lockButton lockButtonUnlock">Lock</button>
+        <button id="lockButton" class="lockButton"></button>
     </div>
     <div class="mapContainer">
         <div id="map"></div>
@@ -42,9 +42,7 @@
 </body>
 </html>
 
-<script src="Home.js">
-    
-</script>
+<script src="Home.js"></script>
 
 <script>
     let lat = 36.84526;
@@ -52,5 +50,8 @@
 
     loadMapScript();
 </script>
+
+
+<script type="module" src="../Firebase/HomePageFirebase.js"></script>
 
 
