@@ -32,19 +32,63 @@ body {
 .email{
     margin-top: 15%;
     font-size: 21px;
-    width: 85%;
+    width: 87%;
     border: 0;
     font-family: 'Montserrat', sans-serif;
 }
 
-.underline{
+.underlineEmail{
     content: '';
     position: absolute;
-    left: 7%;
-    width: 85%;
+    padding-left: 7%;
+    width: 80%;
     height: 1px;
     background-color: black;
-    top: 27%;
+    margin-top: 33%;
     opacity: 30%;
 }
 
+.underlinePhone{
+    content: '';
+    position: absolute;
+    width: 12%; 
+    height: 1px;
+    background-color: black;
+    margin-top: 33%;
+    opacity: 30%;
+}
+
+.number{
+    font-size: 21px;
+    width: 87%;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+    
+}
+
+.underlineNumber{
+    content: '';
+    position: absolute;
+    width: 59%; 
+    height: 1px;
+    background-color: black;
+    margin-top: 33%;
+    opacity: 30%;
+}
+
+.SignUpButton {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(-90deg, #b5cfd9,#4a4af6);
+    width: 90%;
+    height: 8%;
+    font-size: large;
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    border-radius: 20rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    
+}
