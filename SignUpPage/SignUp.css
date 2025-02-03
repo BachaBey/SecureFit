@@ -79,7 +79,7 @@ body {
 .message{
     font-family: 'Montserrat', sans-serif;
     opacity:30% ;
-
+    font-size:90% ;
 }
 
 .SignUpButton {
