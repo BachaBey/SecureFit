@@ -42,33 +42,11 @@
 </body>
 </html>
 
+<script src="Home.js"></script>
 <script>
-    function initMap() {
-        const initialLocation = { lat: 36.84526, lng: 10.27001 };  // You can set it to any initial coordinates
+    let lat = 36.84526;
+    let lng = 10.27001;
 
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 14,
-            center: initialLocation,
-        });
-
-        // Add a marker at the initial location
-        const marker = new google.maps.Marker({
-            position: initialLocation,
-            map: map,
-            title: "Click to open in Google Maps",
-        });
-
-        // Event listener for clicking on the map
-        map.addListener('click', function(event) {
-            const clickedLat = event.latLng.lat();  // Get the latitude of the clicked point
-            const clickedLng = event.latLng.lng();  // Get the longitude of the clicked point
-
-            // Open Google Maps in a new tab at the clicked location
-            const googleMapsUrl = `https://www.google.com/maps?q=${clickedLat},${clickedLng}`;
-            window.open(googleMapsUrl, '_blank');
-        });
-    }
+    loadMapScript(); // Load the script dynamically
 </script>
 
-<!-- Load Google Maps API with your API key -->
-<script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&v=weekly" async></script>
