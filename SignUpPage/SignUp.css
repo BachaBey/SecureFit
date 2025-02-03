@@ -51,16 +51,16 @@ body {
 .underlinePhone{
     content: '';
     position: absolute;
-    width: 12%; 
+    width: 13%; 
     height: 1px;
     background-color: black;
-    margin-top: 33%;
+    margin-top: 20%;
     opacity: 30%;
 }
 
 .number{
     font-size: 21px;
-    width: 87%;
+    width: 86%;
     border: 0;
     font-family: 'Montserrat', sans-serif;
     
@@ -72,13 +72,19 @@ body {
     width: 59%; 
     height: 1px;
     background-color: black;
-    margin-top: 33%;
+    margin-top: 20%;
     opacity: 30%;
+}
+
+.message{
+    font-family: 'Montserrat', sans-serif;
+    opacity:30% ;
+
 }
 
 .SignUpButton {
     position: absolute;
-    top: 70%;
+    bottom: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: linear-gradient(-90deg, #b5cfd9,#4a4af6);
@@ -86,9 +92,11 @@ body {
     height: 8%;
     font-size: large;
     font-family: 'Montserrat', sans-serif;
+    color: black;
     border: none;
     border-radius: 20rem;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    
+
 }
+
