@@ -60,7 +60,7 @@ body {
 
 .number{
     font-size: 21px;
-    width: 86%;
+    width: 84%;
     border: 0;
     font-family: 'Montserrat', sans-serif;
     
@@ -79,7 +79,7 @@ body {
 .message{
     font-family: 'Montserrat', sans-serif;
     opacity:30% ;
-
+    font-size:90% ;
 }
 
 .SignUpButton {
