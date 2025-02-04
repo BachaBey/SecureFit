@@ -66,9 +66,99 @@ function toggleLock() {
 }
 
 
+// Global variables
+let map, marker;
+
+// Initialize Google Maps
+function initMap(lat, lng) {
+    const location = { lat, lng };
+    
+    map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 14,
+        center: location,
+    });
+
+    marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: "Bike Location",
+    });
+
+    // Open Google Maps on marker click
+    marker.addListener("click", () => {
+        window.open(`https://www.google.com/maps?q=${lat},${lng}`, '_blank');
+    });
+
+    // Click event to open Google Maps at clicked location
+    map.addListener("click", (event) => {
+        const clickedLat = event.latLng.lat();
+        const clickedLng = event.latLng.lng();
+        window.open(`https://www.google.com/maps?q=${clickedLat},${clickedLng}`, "_blank");
+    });
+
+    // Start listening for real-time location updates
+    listenForLocationUpdates();
+}
+
+// Listen for location updates from Firebase
+function listenForLocationUpdates() {
+    const locationRef = ref(database, "BikeLocation/Location"); // Adjust path if needed
+
+    onValue(locationRef, (snapshot) => {
+        if (snapshot.exists()) {
+            const data = snapshot.val();
+            let lat = Number(data.lat);
+            let lng = Number(data.lng);
+
+            // Update map marker and center position
+            updateMap(lat, lng);
+        }
+    });
+}
+
+// Update the marker and center the map
+function updateMap(lat, lng) {
+    const newLocation = { lat, lng };
+    map.setCenter(newLocation);
+    marker.setPosition(newLocation);
+}
+
+function initFirebase() {
+    const locationRef = ref(database, "BikeLocation/Location");
+
+    onValue(locationRef, (snapshot) => {
+        if (snapshot.exists()) {
+            const data = snapshot.val();
+            initMap(Number(data.lat), Number(data.lng));
+        } else {
+            console.log("No initial location found");
+        }
+    });
+}
+
+window.initFirebase = initFirebase;
+
+// Load Google Maps script dynamically
+function loadMapScript() {
+    const script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=&callback=initFirebase`;
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+}
+
+// Initialize Firebase and load map on first location update
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     
+    loadMapScript();
+
     listenForLockStatus();
     const lockButton = document.getElementById("lockButton");
     lockButton.addEventListener("click", toggleLock);
+
 });
