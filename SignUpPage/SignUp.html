@@ -18,7 +18,7 @@
 
     <div class="bottom">
         <div style="display: flex;justify-content: center;align-items: center;">
-            <input class="email" type="email" placeholder="example@email.com">
+            <input id="emailInput" class="email" type="email" placeholder="example@email.com">
             <div class="underlineEmail"></div>
         </div>
 
@@ -30,15 +30,17 @@
             </div>
 
             <div style="display: flex;justify-content: center;align-items: center;">
-                <input class="number" type="number" placeholder="12 345 678">
+                <input id="phoneNumberInput" class="number" type="number" placeholder="12 345 678">
                 <div class="underlineNumber"></div>
             </div>
         </div>
 
         <p class="message" style="margin-top: 10%;display: flex; justify-content: center; align-items: center;">Sign up with your e-mail and phone number</p>
 
-        <button class="SignUpButton" onclick="window.location.href='../HomePage/Home.html'">Sign UP</button>
+        <button id="signUpButton" class="SignUpButton">Sign UP</button>
 
     </div>
 </body>
 </html>
+
+<script type="module" src="../Firebase/SignUpPageFirebase.js"></script>
