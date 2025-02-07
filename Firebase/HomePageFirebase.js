@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
+import { getDatabase, ref, onValue, set, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAWtTTy56hwxe4dE4CJWEg1HwUI1KeQBjw",
@@ -91,9 +91,7 @@ function initMap(lat, lng) {
 
     // Click event to open Google Maps at clicked location
     map.addListener("click", (event) => {
-        const clickedLat = event.latLng.lat();
-        const clickedLng = event.latLng.lng();
-        window.open(`https://www.google.com/maps?q=${clickedLat},${clickedLng}`, "_blank");
+        window.open(`https://www.google.com/maps?q=${lat},${lng}`, "_blank");
     });
 
     // Start listening for real-time location updates
@@ -147,14 +145,24 @@ function loadMapScript() {
     document.body.appendChild(script);
 }
 
-// Initialize Firebase and load map on first location update
+function loadName() {
 
+    const dataRef = ref(database, "UserData"); // Change path
 
+    get(dataRef)
+    .then((snapshot) => {
+        if (snapshot.exists()) {
+            const data = snapshot.val();
+            const name = document.getElementById("name");
+            name.innerHTML = data.Name;
+        }
+    })
 
-
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    
+    loadName();
+
     loadMapScript();
 
     listenForLockStatus();

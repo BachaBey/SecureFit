@@ -21,11 +21,7 @@ const today = new Date();
     let daySelected="0"+todayday+"-"+(monthIndex+1)+"-"+year;
     for (let i = dateButtons.length - 1; i >= 0; i--) {
         dateButtons[i].innerHTML = todayday;
-        if (todayday<10){
-            dateButtons[i].id="0"+todayday+"-"+(monthIndex+1)+"-"+year;
-        }else[
-            dateButtons[i].id=todayday+"-"+(monthIndex+1)+"-"+year
-        ]
+        dateButtons[i].id = String(todayday).padStart(2, '0') + "-" + String(monthIndex + 1).padStart(2, '0') + "-" + year;
         
         todayday--; 
 
@@ -40,6 +36,7 @@ const today = new Date();
             todayday = getDaysInMonth(monthIndex, year);
         }
     }
+
     
     dateButtons.forEach(button => {
         button.addEventListener("click", function () {
@@ -48,7 +45,7 @@ const today = new Date();
 
             // Add "selected" class to the clicked button
             this.classList.add("selected");
-            daySelected=this.id;
+            
             
         }); 
     });

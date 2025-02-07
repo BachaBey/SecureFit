@@ -21,7 +21,6 @@
             <button class="date"></button>
             <button class="date"></button>
             <button class="date"></button>
-            <button class="date"></button>
             <button class="date selected"></button>
         </div>
     </div>
@@ -34,7 +33,7 @@
             <img src="../Images/duration-icon.png" class="icon" alt="Duration">
             <div class="details">
                 <p class="label">Duration</p>
-                <p class="valueDuration">28 mins</p>
+                <p class="valueDuration" id="timeOutput"></p>
             </div>
         </div>
 
@@ -42,7 +41,7 @@
             <img src="../Images/calories-icon.png" class="icon" alt="Calories">
             <div class="details">
                 <p class="label">Calories</p>
-                <p class="valueCalories">34 cal</p>
+                <p class="valueCalories" id="caloriesOutput"></p>
             </div>
         </div>
 
@@ -50,15 +49,15 @@
             <img src="../Images/distance-icon.png" class="icon" alt="Distance">
             <div class="details">
                 <p class="label">Distance</p>
-                <p class="valueDistance">3752 m</p>
+                <p class="valueDistance" id="distanceOutput"></p>
             </div>
         </div>
 
         <div class="card">
             <img src="../Images/carbon-icon.png" class="icon" alt="Carbon">
             <div class="details">
-                <p class="label">Carbon</p>
-                <p class="valueCarbon">6 oz</p>
+                <p class="label">Carbon Saved</p>
+                <p class="valueCarbon" id="carbonOutput"></p>
             </div>
         </div>
     </div>
@@ -75,17 +74,6 @@
 <script src="activity.js"></script>
 
     
-<script type="module" src="../Firebase/Firebase.js">
-    
-    dateButtons.forEach(button => {
-        button.addEventListener("click", function () {
-
-            daySelected=this.id;
-            
-        }); 
-    });
-
-    
-</script>
+<script type="module" src="../Firebase/ActivityPageFirebase.js"></script>
 
 
