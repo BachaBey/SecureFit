@@ -23,8 +23,8 @@ function getDateShown() {
         day.addEventListener("click", () => {
             const selectedDay = day.id;
 
-            const bikerMetricsRef = ref(database,`BikerMetrics/${selectedDay}`); // Change to your actual path in the database
-            const bikerWeightRef = ref(database,`UserData/BodyWeight`);
+            const bikerMetricsRef = ref(database,`BuyingSide/B1/BikerMetrics/${selectedDay}`); // Change to your actual path in the database
+            const bikerWeightRef = ref(database,`BuyingSide/B1/UserData/BodyWeight`);
 
             onValue(bikerMetricsRef, async (snapshot) => {
                 const timeOutput = document.getElementById("timeOutput");
@@ -70,8 +70,8 @@ function getDateShown() {
 
 function loadPageData() {
     const selectedDay = document.querySelector(".date.selected").id;
-    const bikerMetricsRef = ref(database,`BikerMetrics/${selectedDay}`); // Change to your actual path in the database
-    const bikerWeightRef = ref(database,`UserData/BodyWeight`);
+    const bikerMetricsRef = ref(database,`BuyingSide/B1/BikerMetrics/${selectedDay}`); // Change to your actual path in the database
+    const bikerWeightRef = ref(database,`BuyingSide/B1/UserData/BodyWeight`);
 
     onValue(bikerMetricsRef, async (snapshot) => {
         const timeOutput = document.getElementById("timeOutput");
@@ -88,6 +88,7 @@ function loadPageData() {
             const weight = weightSnapshot.val(); // Assuming weight is stored as { weight: 70 }
             const MET = 8; // Default MET value for cycling
             const durationHours = metrics.TotalTime / 60; // Convert minutes to hours
+            
 
             // Calculate calories burned
             const caloriesBurned = MET * weight * durationHours;

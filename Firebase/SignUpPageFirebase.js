@@ -30,7 +30,7 @@ function verifyData() {
 
 }
 
-function updateDataInDatabase() {
+async function updateDataInDatabase() {
     const emailInput = document.getElementById("emailInput").value;
     const phoneNumberInput = document.getElementById("phoneNumberInput").value;
     
@@ -39,9 +39,28 @@ function updateDataInDatabase() {
         "UserData/PhoneNumber":phoneNumberInput
     };
 
-    return update(ref(database),updates);
+    const generatedID = await generateNextID();;
+
+    return update(ref(database, `BuyingSide/${generatedID}`), updates);
 
 } 
+
+async function generateNextID() {
+    const dbRef = ref(database, "BuyingSide");
+
+    return get(dbRef).then(snapshot => {
+        if (snapshot.exists()) {
+            const ids = Object.keys(snapshot.val());
+            const lastID = ids.sort().pop();
+
+            if (lastID) {
+                const lastNumber = parseInt(lastID.substring(1));
+                return `B${lastNumber + 1}`;
+            }
+        }
+        return "B1"; // Default if no IDs exist
+    })
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const submitButton = document.getElementById("signUpButton");

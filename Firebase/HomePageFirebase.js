@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 function listenForLockStatus() {
-    const lockRef = ref(database,"LockState/State"); // Change to your actual path in the database
+    const lockRef = ref(database,"BuyingSide/B1/BikeState/LockState/State"); // Change to your actual path in the database
     
     onValue(lockRef, (snapshot) => {
         if (snapshot.exists()) {
@@ -55,13 +55,31 @@ function listenForLockStatus() {
 }
 
 
-const lockRef = ref(database,"LockState/State");
+function getFormattedDateTime() {
+    const now = new Date();
+
+    const day = String(now.getDate()).padStart(2, '0');
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const year = now.getFullYear();
+
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+
+    return `${day}-${month}-${year} ${hours}:${minutes}`;
+}
+
+
+
+const lockRefState = ref(database,"BuyingSide/B1/BikeState/LockState/State");
+const lockRefStateDate = ref(database,"BuyingSide/B1/BikeState/LockState/LastUpdated");
 function toggleLock() {
     // Get current state from UI
     const currentState = document.getElementById("state").innerText.toLowerCase();
     const newStatus = currentState === "locked" ? "unlocked" : "locked";
+    const newDate = getFormattedDateTime();
 
-    set(lockRef, newStatus)
+    set(lockRefState, newStatus);
+    set(lockRefStateDate, newDate);
     
 }
 
@@ -100,7 +118,7 @@ function initMap(lat, lng) {
 
 // Listen for location updates from Firebase
 function listenForLocationUpdates() {
-    const locationRef = ref(database, "BikeLocation/Location"); // Adjust path if needed
+    const locationRef = ref(database, "BuyingSide/B1/BikeState/BikeLocation/Location"); // Adjust path if needed
 
     onValue(locationRef, (snapshot) => {
         if (snapshot.exists()) {
@@ -122,7 +140,7 @@ function updateMap(lat, lng) {
 }
 
 function initFirebase() {
-    const locationRef = ref(database, "BikeLocation/Location");
+    const locationRef = ref(database, "BuyingSide/B1/BikeState/BikeLocation/Location");
 
     onValue(locationRef, (snapshot) => {
         if (snapshot.exists()) {
@@ -147,7 +165,7 @@ function loadMapScript() {
 
 function loadName() {
 
-    const dataRef = ref(database, "UserData"); // Change path
+    const dataRef = ref(database, "BuyingSide/B1/UserData"); // Change path
 
     get(dataRef)
     .then((snapshot) => {
