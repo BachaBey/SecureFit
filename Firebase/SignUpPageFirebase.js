@@ -20,9 +20,12 @@ const database = getDatabase(app);
 function verifyData() {
 
     const emailInput = document.getElementById("emailInput").value;
-    const phoneNumberInput = document.getElementById("phoneNumberInput").value;  
+    const NameInput = document.getElementById("NameInput").value; 
+    const LastNameNameInput = document.getElementById("LastNameInput").value;  
+    const BodyWeightInput = document.getElementById("BodyWeightInput").value; 
+    const phoneNumberInput = document.getElementById("phoneNumberInput").value;
 
-    if (emailInput!="" && phoneNumberInput.length==8) {
+    if (emailInput!="" && NameInput!="" && LastNameNameInput!="" && BodyWeightInput!="" &&phoneNumberInput.length==8 ) {
         return true;
     } else {
         return false;
@@ -32,11 +35,17 @@ function verifyData() {
 
 async function updateDataInDatabase() {
     const emailInput = document.getElementById("emailInput").value;
+    const NameInput = document.getElementById("NameInput").value; 
+    const LastNameNameInput = document.getElementById("LastNameInput").value;  
+    const BodyWeightInput = document.getElementById("BodyWeightInput").value; 
     const phoneNumberInput = document.getElementById("phoneNumberInput").value;
     
     const updates = {
-        "UserData/UserEmail":emailInput,
-        "UserData/PhoneNumber":phoneNumberInput
+        "UserData/Email":emailInput,
+        "UserData/Name":NameInput,
+        "UserData/LastName":LastNameNameInput,
+        "UserData/BodyWeight":BodyWeightInput,
+        "UserData/PhoneNumber":phoneNumberInput,
     };
 
     const generatedID = await generateNextID();;
