@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="SignUp.css">
+    <link rel="stylesheet" href="SignIn.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <title>SecureFit</title>
 </head>
 <body>
     <div  style="height: 15%;display: flex;justify-content: center;align-items: center;">
         <div style="height: 10%;width:63%;left:5%;position: absolute;display: flex;justify-content: center;align-items: center;gap: 10%;font-weight: 600;">
-            <a href="../SignIn/SignIn.html" style="color: rgba(0, 0, 0, 0.3);font-size: 21px ;text-decoration: none;">Log in</a>
-            <p class="signup" style="font-size: 32px;font-weight: 700;">Sign up</p>
+            <p class="SignIn" style="font-size: 32px;font-weight: 700;">Sign in</p>
+            <a  href="../SignUpPage/SignUp.html" style="color: rgba(0, 0, 0, 0.3);font-size: 21px ;text-decoration: none;">Sign up</a>
 
         </div>     
     </div>
@@ -19,21 +19,6 @@
     <div class="bottom">
         <div style="display: flex;justify-content: center;align-items: center;">
             <input id="emailInput" class="email" type="email" placeholder="example@email.com">
-            <div class="underlineEmail"></div>
-        </div>
-
-        <div style="display: flex;justify-content: center;align-items: center;">
-            <input id="NameInput" class="email" type="text" placeholder="Name">
-            <div class="underlineEmail"></div>
-        </div>
-
-        <div style="display: flex;justify-content: center;align-items: center;">
-            <input id="LastNameInput" class="email" type="text" placeholder="Last Name">
-            <div class="underlineEmail"></div>
-        </div>
-
-        <div style="display: flex;justify-content: center;align-items: center;">
-            <input id="BodyWeightInput" class="email" type="number" placeholder="Body Weight">
             <div class="underlineEmail"></div>
         </div>
 
@@ -49,13 +34,14 @@
             </div>
         </div>
 
-        <div class="buttonSignUp">
-            <p class="message">Sign up with your e-mail and phone number</p>
-            <button id="signUpButton" class="SignUpButton">Sign UP</button>
+        <div class="buttonSignIn">
+            <p class="message">Sign in with your e-mail and phone number</p>
+            <button class="SignInButton">Sign In</button>
         </div>
 
     </div>
 </body>
-</html>
 
-<script type="module" src="../Firebase/SignUpPageFirebase.js"></script>
+    
+</body>
+</html>
