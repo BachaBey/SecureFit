@@ -18,13 +18,14 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 function getDateShown() {
+    const userID = localStorage.getItem("userID");
     const dates = document.querySelectorAll(".date");
     dates.forEach(day => {
         day.addEventListener("click", () => {
             const selectedDay = day.id;
 
-            const bikerMetricsRef = ref(database,`BuyingSide/B1/BikerMetrics/${selectedDay}`); // Change to your actual path in the database
-            const bikerWeightRef = ref(database,`BuyingSide/B1/UserData/BodyWeight`);
+            const bikerMetricsRef = ref(database,"BuyingSide/"+userID+"/BikerMetrics/"+selectedDay); // Change to your actual path in the database
+            const bikerWeightRef = ref(database,"BuyingSide/"+userID+"/UserData/BodyWeight");
 
             onValue(bikerMetricsRef, async (snapshot) => {
                 const timeOutput = document.getElementById("timeOutput");
@@ -69,9 +70,10 @@ function getDateShown() {
 }
 
 function loadPageData() {
+    const userID = localStorage.getItem("userID");
     const selectedDay = document.querySelector(".date.selected").id;
-    const bikerMetricsRef = ref(database,`BuyingSide/B1/BikerMetrics/${selectedDay}`); // Change to your actual path in the database
-    const bikerWeightRef = ref(database,`BuyingSide/B1/UserData/BodyWeight`);
+    const bikerMetricsRef = ref(database,"BuyingSide/"+userID+"/BikerMetrics/"+selectedDay); // Change to your actual path in the database
+    const bikerWeightRef = ref(database,"BuyingSide/"+userID+"/UserData/BodyWeight");
 
     onValue(bikerMetricsRef, async (snapshot) => {
         const timeOutput = document.getElementById("timeOutput");

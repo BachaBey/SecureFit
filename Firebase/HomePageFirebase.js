@@ -18,7 +18,8 @@ const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
 
 function listenForLockStatus() {
-    const lockRef = ref(database,"BuyingSide/B1/BikeState/LockState/State"); // Change to your actual path in the database
+    const userID = localStorage.getItem("userID");
+    const lockRef = ref(database,"BuyingSide/"+userID+"/BikeState/LockState/State"); // Change to your actual path in the database
     
     onValue(lockRef, (snapshot) => {
         if (snapshot.exists()) {
@@ -69,9 +70,9 @@ function getFormattedDateTime() {
 }
 
 
-
-const lockRefState = ref(database,"BuyingSide/B1/BikeState/LockState/State");
-const lockRefStateDate = ref(database,"BuyingSide/B1/BikeState/LockState/LastUpdated");
+const userID = localStorage.getItem("userID");
+const lockRefState = ref(database,"BuyingSide/"+userID+"/BikeState/LockState/State");
+const lockRefStateDate = ref(database,"BuyingSide/"+userID+"/BikeState/LockState/LastUpdated");
 function toggleLock() {
     // Get current state from UI
     const currentState = document.getElementById("state").innerText.toLowerCase();
@@ -118,7 +119,8 @@ function initMap(lat, lng) {
 
 // Listen for location updates from Firebase
 function listenForLocationUpdates() {
-    const locationRef = ref(database, "BuyingSide/B1/BikeState/BikeLocation/Location"); // Adjust path if needed
+    const userID = localStorage.getItem("userID");
+    const locationRef = ref(database, "BuyingSide/"+userID+"/BikeState/BikeLocation/Location"); // Adjust path if needed
 
     onValue(locationRef, (snapshot) => {
         if (snapshot.exists()) {
@@ -140,7 +142,8 @@ function updateMap(lat, lng) {
 }
 
 function initFirebase() {
-    const locationRef = ref(database, "BuyingSide/B1/BikeState/BikeLocation/Location");
+    const userID = localStorage.getItem("userID");
+    const locationRef = ref(database, "BuyingSide/"+userID+"/BikeState/BikeLocation/Location");
 
     onValue(locationRef, (snapshot) => {
         if (snapshot.exists()) {
@@ -164,8 +167,8 @@ function loadMapScript() {
 }
 
 function loadName() {
-
-    const dataRef = ref(database, "BuyingSide/B1/UserData"); // Change path
+    const userID = localStorage.getItem("userID");
+    const dataRef = ref(database, "BuyingSide/"+userID+"/UserData"); // Change path
 
     get(dataRef)
     .then((snapshot) => {

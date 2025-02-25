@@ -64,9 +64,11 @@ async function generateNextID() {
 
             if (lastID) {
                 const lastNumber = parseInt(lastID.substring(1));
+                localStorage.setItem("userID", `B${lastNumber + 1}`);
                 return `B${lastNumber + 1}`;
             }
         }
+        localStorage.setItem("userID", "B1");
         return "B1"; // Default if no IDs exist
     })
 }
