@@ -45,7 +45,7 @@ async function findUserIdByPhone(phoneNumber) {
 
 function verifylogIn() {
     const emailInput = document.getElementById("emailInput").value;
-    const phoneNumberInput = document.getElementById("phoneNumberInput").value;
+    const phoneNumberInput = "+216"+document.getElementById("phoneNumberInput").value;
     findUserIdByPhone(phoneNumberInput).then((userId) => {
         if (userId) {
             const dbRef = ref(database, "BuyingSide/" + userId+"/UserData");
@@ -74,7 +74,6 @@ function verifylogIn() {
 document.addEventListener("DOMContentLoaded", () => {
     const loginButton = document.getElementById("loginButton");
     loginButton.addEventListener("click", () => {
-        console.log("tt");
         verifylogIn();
     });
 })

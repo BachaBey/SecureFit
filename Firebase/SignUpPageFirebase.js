@@ -45,7 +45,7 @@ async function updateDataInDatabase() {
         "UserData/Name":NameInput,
         "UserData/LastName":LastNameNameInput,
         "UserData/BodyWeight":BodyWeightInput,
-        "UserData/PhoneNumber":phoneNumberInput,
+        "UserData/PhoneNumber":"+216"+phoneNumberInput,
     };
 
     const generatedID = await generateNextID();;
