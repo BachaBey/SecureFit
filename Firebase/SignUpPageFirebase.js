@@ -24,8 +24,9 @@ function verifyData() {
     const LastNameNameInput = document.getElementById("LastNameInput").value;  
     const BodyWeightInput = document.getElementById("BodyWeightInput").value; 
     const phoneNumberInput = document.getElementById("phoneNumberInput").value;
+    const lockIdInput = document.getElementById("lockIdInput").value;
 
-    if (emailInput!="" && NameInput!="" && LastNameNameInput!="" && BodyWeightInput!="" &&phoneNumberInput.length==8 ) {
+    if (emailInput!="" && NameInput!="" && LastNameNameInput!="" && BodyWeightInput!="" &&phoneNumberInput.length==8 && lockIdInput!="" ) {
         return true;
     } else {
         return false;
@@ -39,6 +40,7 @@ async function updateDataInDatabase() {
     const LastNameNameInput = document.getElementById("LastNameInput").value;  
     const BodyWeightInput = document.getElementById("BodyWeightInput").value; 
     const phoneNumberInput = document.getElementById("phoneNumberInput").value;
+    const lockIdInput = document.getElementById("lockIdInput").value;
     
     const updates = {
         "UserData/Email":emailInput,
@@ -46,6 +48,7 @@ async function updateDataInDatabase() {
         "UserData/LastName":LastNameNameInput,
         "UserData/BodyWeight":BodyWeightInput,
         "UserData/PhoneNumber":"+216"+phoneNumberInput,
+        "LockID":lockIdInput
     };
 
     const generatedID = await generateNextID();;
